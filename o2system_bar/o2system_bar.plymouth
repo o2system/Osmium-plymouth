@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=O2System_Bar
+Description=A Simple and Elegant Plymouth that Reflects You
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/o2system_bar
+ScriptFile=/usr/share/plymouth/themes/o2system_bar/o2system_bar.script

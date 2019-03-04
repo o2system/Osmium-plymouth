@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=O2System_Circle
+Description=A Simple and Elegant Plymouth that Reflects You
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/o2system_circle
+ScriptFile=/usr/share/plymouth/themes/o2system_circle/o2system_circle.script
