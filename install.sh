@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Updated by Ryuffhant [ https://github.com/ryuffhant ]
+
 if ((${EUID:-0} || "$(id -u)")); then
   clear
   sleep 1.5
