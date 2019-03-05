@@ -27,3 +27,9 @@ sudo vim /usr/share/plymouth/themes/o2system_bar_text/o2system_bar_text.script
 sudo vim /usr/share/plymouth/themes/o2system_circle/o2system_circle.script
 ```
 (to edit o2system_circle Plymouth)
+
+## Screen shoot
+
+![o2system plymounts bar](images/bar.png)
+![o2system plymounts bar](images/bar_text.png)
+![o2system plymounts bar](images/circle.png)
