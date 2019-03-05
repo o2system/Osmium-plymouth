@@ -14,16 +14,16 @@ chmod ug+x ./install.sh
 1. open terminal
 2. enter this command
 ```
-sudo gedit /usr/share/plymouth/themes/o2system_bar/o2system_bar.script
+sudo vim /usr/share/plymouth/themes/o2system_bar/o2system_bar.script
 ```
 (to edit o2system_bar Plymouth)
 
 ```
-sudo gedit /usr/share/plymouth/themes/o2system_bar_text/o2system_bar_text.script
+sudo vim /usr/share/plymouth/themes/o2system_bar_text/o2system_bar_text.script
 ```
 (to edit o2system_bar_text Plymouth)
 
 ```
-sudo gedit /usr/share/plymouth/themes/o2system_circle/o2system_circle.script
+sudo vim /usr/share/plymouth/themes/o2system_circle/o2system_circle.script
 ```
 (to edit o2system_circle Plymouth)
