@@ -1,4 +1,5 @@
-# -------------------[ o2system Plymouth ]-----------------
+# ------------------[ O2System Plymouth bar_text]----------------
+
 
 # ====================[ Constant here !!!!! ]==================== #
 
@@ -14,7 +15,7 @@ progress_t= 0;
 
 # ====================[ Scale Desktop begin ]==================== #
 
-bg_image = Image("o2system_background.png");
+bg_image = Image("background.png");
 window_max_width = Window.GetX() * 2 + Window.GetWidth();
 window_max_height = Window.GetY() * 2 + Window.GetHeight();
 screen_ratio = window_max_width / window_max_height;
@@ -32,9 +33,9 @@ bg_sprite.SetPosition(Window.GetX() + Window.GetWidth() / 2 - scaled_bg_image.Ge
 
 # ====================[ Scale Desktop end ]==================== #
 
-# ====================[ Text_center begin ]==================== #
+# ====================[ Hi, Text_center begin ]==================== #
 
-  if (Plymouth.GetMode () == "boot")
+if (Plymouth.GetMode () == "boot")
      { 
         text.image = Image.Text (hi_text,255,255,255,1, ubuntufont);
         text.sprite = Sprite(text.image);
@@ -50,18 +51,26 @@ bg_sprite.SetPosition(Window.GetX() + Window.GetWidth() / 2 - scaled_bg_image.Ge
         text_end.y = Window.GetY() + Window.GetHeight() * 0.505  - text_end.image.GetHeight() / 2;
         text_end.sprite.SetPosition(text_end.x, text_end.y, 2);
       }
-# ====================[ Text_center end ]==================== #
 
-# ====================[ o2system Logo begin ]==================== #
+# ====================[ Hi, Text_center end ]==================== #
 
-new_logo.image = Image("o2system.png");
-    new_logo.sprite = Sprite();
-    new_logo.x = Window.GetWidth() / 2 - new_logo.image.GetWidth()  / 2;
-    new_logo.y = Window.GetHeight() * 0.35 - new_logo.image.GetHeight() / 2;
-    new_logo.sprite.SetPosition(new_logo.x, new_logo.y, 10);
-    new_logo.sprite.SetImage(new_logo.image);
+# ====================[ Ubuntu Logo begin ]==================== #
 
-# ====================[ o2system Logo end ]==================== #
+logo_1_filename = "logo.png";
+logo_1.image = Image (logo_1_filename);
+logo_1.sprite = Sprite ();
+logo_1.sprite.SetImage (logo_1.image);
+logo_1.width = logo_1.image.GetWidth ();
+logo_1.height = logo_1.image.GetHeight ();
+logo_1.x = Window.GetX() + Window.GetWidth () /2 - logo_1.width /2;
+logo_1.y = Window.GetHeight () * 0.37 - logo_1.height /2;
+logo_1.z = 1000;
+logo_1.sprite.SetX (logo_1.x);
+logo_1.sprite.SetY (logo_1.y);
+logo_1.sprite.SetZ (logo_1.z);
+logo_1.sprite.SetOpacity (1);
+
+# ====================[ Ubuntu Logo end ]==================== #
 
 # ====================[ Dialog_script begin ]==================== #
 
@@ -165,6 +174,15 @@ progress_bar.x = Window.GetX() + Window.GetWidth()  / 2 -        progress_bar.or
 progress_bar.y = Window.GetY() + Window.GetHeight() * 0.55  - progress_box.image.GetHeight() / 2;
 progress_bar.sprite.SetPosition(progress_bar.x, progress_bar.y, 1);
 
+progress_text.image = Image.Text(progress_t + "%",255,255,255,1,progressfont);
+progress_text.sprite = Sprite();
+
+progress_text.x = Window.GetX() + Window.GetWidth()  / 2 -        progress_text.image.GetWidth() / 2;
+progress_text.y = Window.GetY() + Window.GetHeight() * 0.60  - progress_text.image.GetHeight() / 2;
+progress_text.sprite.SetPosition(progress_text.x, progress_text.y, 100000);
+
+
+
 fun progress_callback (duration, progress)
   {
 progress_bar.image = progress_bar.original_image;
@@ -174,7 +192,9 @@ progress_t.image = progress_text.image;
       {
         progress_bar.image = progress_bar.original_image.Scale(progress_bar.original_image.GetWidth() * progress, progress_bar.original_image.GetHeight());
         progress_bar.sprite.SetImage (progress_bar.image);
-       
+        f = Math.Int (progress_bar.image.GetWidth () /progress_bar.original_image.GetWidth () * 100 );
+        progress_t.image = Image.Text(f + "%",255,255,255,1,progressfont);
+    progress_text.sprite.SetImage(progress_t.image);
       } 
   }
 
@@ -202,7 +222,8 @@ fun message_callback (text)
   {
     if (num_displayed_msg < maximum_msg)
       {
-       
+        # We've not reached max number of messages
+        # Compute next y
         next_msg_y = 10;
         for (i = 0; i < num_displayed_msg; i++)
           next_msg_y += msg_sprites[i].GetImage().GetHeight() + 1; # 1px between lines
@@ -210,7 +231,8 @@ fun message_callback (text)
       }
     else
       {
-        
+        # We've reached max number of messages
+        # Move all existing messages one line up
         move_y_by = -1 - msg_sprites[(next_msg_idx + 1) % maximum_msg].GetImage().GetHeight();
   for (i = 0; i < maximum_msg; i++)
           {

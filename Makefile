@@ -1,7 +1,11 @@
 .PHONY: install uninstall set-default
 
 uninstall:
-	rm -rv /usr/share/plymouth/themes/osmium || true
+	rm -rv /usr/share/plymouth/themes/Osmium_bar || true
+	rm -rv /usr/share/plymouth/themes/Osmium_white || true
+	rm -rv /usr/share/plymouth/themes/Osmium_bar_text || true
+	rm -rv /usr/share/plymouth/themes/Osmium_circle || true
+	rm -rv /usr/share/plymouth/themes/Osmium_logo || true
 
 install: uninstall
 	cp -Rv Osmium_bar /usr/share/plymouth/themes/

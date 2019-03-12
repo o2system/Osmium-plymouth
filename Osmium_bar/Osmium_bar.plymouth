@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Osmium_Bar
+Description=A Simple and Elegant Plymouth that Reflects You
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/Osmium_bar
+ScriptFile=/usr/share/plymouth/themes/Osmium_bar/Osmium_bar.script
