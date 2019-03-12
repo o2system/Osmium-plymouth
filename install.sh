@@ -16,12 +16,16 @@ else
   sleep 3
   echo "Please be careful!!"
   sleep 1.5
-  cp -iRv o2system_bar /usr/share/plymouth/themes/
-  cp -iRv o2system_bar_text /usr/share/plymouth/themes/
-  cp -iRv o2system_circle /usr/share/plymouth/themes/
-  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/o2system_bar/o2system_bar.plymouth 100
-  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/o2system_bar_text/o2system_bar_text.plymouth 100
-  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/o2system_circle/o2system_circle.plymouth 100
+  cp -Rv Osmium_bar /usr/share/plymouth/themes/
+  cp -Rv Osmium_white /usr/share/plymouth/themes/
+  cp -Rv Osmium_bar_text /usr/share/plymouth/themes/
+  cp -Rv Osmium_circle /usr/share/plymouth/themes/
+  cp -Rv Osmium_logo /usr/share/plymouth/themes/
+  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Osmium_bar/Osmium_bar.plymouth 100
+  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Osmium_white/Osmium_white.plymouth 100
+  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Osmium_bar_text/Osmium_bar_text.plymouth 100
+  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Osmium_circle/Osmium_circle.plymouth 100
+  update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Osmium_logo/Osmium_logo.plymouth 100
   update-alternatives --config default.plymouth
   update-initramfs -u
 fi
